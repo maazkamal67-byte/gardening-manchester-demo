@@ -1,0 +1,6 @@
+{
+  "name": "Gardening Services Manchester",
+  "description": "Premium, modern single-page website for Gardening Services Manchester, providing professional garden maintenance, clearance, and outdoor cleaning in Manchester, UK.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

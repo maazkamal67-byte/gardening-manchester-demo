@@ -1,0 +1,1765 @@
+/* ==========================================================================
+   Gardening Services Manchester - "Natural Tones" Theme
+   Palette: Natural Linen Canvas (#FBFBF9), Deep Pine/Forest (#1B3022),
+   Warm Terracotta Accent (#D97A5B), Sand/Beige Wells (#F5F2ED), White (#FFFFFF)
+   Typography: Editorial Serif (Newsreader) + Modern Sans (Plus Jakarta Sans)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties / Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Natural Tones Colors */
+  --color-primary-dark: #142419;
+  --color-primary: #1B3022;
+  --color-primary-light: #284833;
+  --color-primary-tint: #EEF3EE;
+  
+  --color-accent-terracotta: #D97A5B;
+  --color-accent-hover: #C56748;
+  --color-accent-soft: #FCEDE8;
+  
+  --color-sand: #F5F2ED;
+  --color-sand-dark: #EAE5DC;
+  
+  /* Neutrals */
+  --color-bg-body: #FBFBF9;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-subtle: #F6F4EE;
+  
+  --color-text-title: #1B3022;
+  --color-text-main: #2C3E32;
+  --color-text-muted: #5E6F63;
+  --color-text-subtle: #8D9C92;
+  
+  --color-border: rgba(27, 48, 34, 0.1);
+  --color-border-subtle: rgba(27, 48, 34, 0.06);
+  --color-border-hover: #D97A5B;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(27, 48, 34, 0.03);
+  --shadow-md: 0 6px 18px rgba(27, 48, 34, 0.06);
+  --shadow-lg: 0 16px 32px rgba(27, 48, 34, 0.08);
+  --shadow-hover: 0 14px 28px rgba(27, 48, 34, 0.1);
+  
+  /* Crisp Minimal Radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Dimensions */
+  --header-height: 74px;
+  --max-width: 1200px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg-body);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography & Utilities
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5 {
+  color: var(--color-text-title);
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(2.35rem, 5vw, 3.85rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+h2 {
+  font-size: clamp(1.85rem, 3.8vw, 2.65rem);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+.section {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+.section-subtle {
+  background-color: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-dark {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.section-dark h2, 
+.section-dark h3, 
+.section-dark p {
+  color: #ffffff;
+}
+
+.section-dark p {
+  color: #c4d4c8;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background-color: var(--color-sand);
+  color: var(--color-accent-terracotta);
+  border: 1px solid rgba(217, 122, 91, 0.2);
+  margin-bottom: 1rem;
+}
+
+.badge-tag.accent {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-terracotta);
+  border-color: rgba(217, 122, 91, 0.3);
+}
+
+.badge-tag.light {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-accent-terracotta);
+  border-color: rgba(217, 122, 91, 0.4);
+}
+
+.section-title {
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons & Interactive Elements
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: all var(--transition-fast);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-accent-terracotta);
+  color: #ffffff;
+  border: 1px solid var(--color-accent-terracotta);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: #ffffff;
+}
+
+.btn-forest {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-primary);
+}
+
+.btn-forest:hover {
+  background-color: var(--color-accent-terracotta);
+  border-color: var(--color-accent-terracotta);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid rgba(27, 48, 34, 0.25);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.btn-outline-white {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-outline-white:hover {
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.15rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+/* --------------------------------------------------------------------------
+   5. Top Bar & Sticky Navigation
+   -------------------------------------------------------------------------- */
+.top-bar {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.top-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #c9d8ce;
+  font-size: 0.8rem;
+}
+
+.top-bar-item svg {
+  color: var(--color-accent-terracotta);
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.55rem;
+  background-color: rgba(217, 122, 91, 0.15);
+  color: #ff9b7d;
+  border-radius: var(--radius-xs);
+  font-weight: 700;
+  font-size: 0.725rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent-terracotta);
+  border-radius: 50%;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 122, 91, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(217, 122, 91, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 122, 91, 0); }
+}
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(251, 251, 249, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border);
+  transition: all var(--transition-smooth);
+}
+
+.main-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: 1px solid var(--color-primary-dark);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.logo-subtitle {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-accent-terracotta);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text-title);
+  position: relative;
+  padding: 0.4rem 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-accent-terracotta);
+  transition: width var(--transition-smooth);
+}
+
+.nav-link:hover {
+  color: var(--color-accent-terracotta);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.header-phone-box {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-sand);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.header-phone-box:hover {
+  border-color: var(--color-accent-terracotta);
+  background-color: var(--color-accent-soft);
+}
+
+.header-phone-box svg {
+  color: var(--color-accent-terracotta);
+}
+
+.header-phone-number {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+
+.header-phone-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.mobile-toggle-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  padding: 6px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-sand);
+  border: 1px solid var(--color-border);
+}
+
+.mobile-toggle-btn span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.mobile-toggle-btn.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-toggle-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle-btn.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  background-color: var(--color-bg-body);
+  z-index: 999;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  border-top: 1px solid var(--color-border);
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-link {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero Section (Image 1: Well-Maintained Lush Garden Lawn)
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  padding: 5rem 0 5.5rem 0;
+  background-color: var(--color-bg-body);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  margin-bottom: 1.25rem;
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.hero-title span {
+  color: var(--color-accent-terracotta);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.hero-subheadline {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-main);
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.hero-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero-highlight-item svg {
+  color: var(--color-accent-terracotta);
+  flex-shrink: 0;
+}
+
+.hero-highlight-text {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  line-height: 1.25;
+}
+
+.hero-highlight-text small {
+  display: block;
+  font-size: 0.725rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-image-card {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-surface);
+}
+
+.hero-image-card img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.hero-image-card:hover img {
+  transform: scale(1.02);
+}
+
+.hero-floating-card {
+  position: absolute;
+  bottom: -16px;
+  left: -16px;
+  background: var(--color-bg-surface);
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: 270px;
+}
+
+.floating-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-sand);
+  color: var(--color-accent-terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+}
+
+.floating-text h4 {
+  font-size: 0.875rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.floating-text p {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   7. Services Section & Image 2: Gardener Trimming / Mowing Showcase
+   -------------------------------------------------------------------------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.service-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent-terracotta);
+}
+
+.service-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-sand);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.service-card:hover .service-icon-box {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-terracotta);
+  border-color: rgba(217, 122, 91, 0.3);
+}
+
+.service-title {
+  font-size: 1.15rem;
+  margin-bottom: 0.65rem;
+  color: var(--color-primary);
+}
+
+.service-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.service-features {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.service-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.service-feature-item svg {
+  color: var(--color-accent-terracotta);
+  flex-shrink: 0;
+}
+
+.service-cta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-accent-terracotta);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color var(--transition-fast);
+}
+
+.service-cta-link:hover {
+  color: var(--color-accent-hover);
+}
+
+.service-cta-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.service-card:hover .service-cta-link svg {
+  transform: translateX(4px);
+}
+
+/* Services Action Showcase (Image 2) */
+.services-showcase-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.services-showcase-img-wrap {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.services-showcase-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.services-showcase-card:hover .services-showcase-img-wrap img {
+  transform: scale(1.02);
+}
+
+.services-showcase-tag-overlay {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background-color: rgba(20, 36, 25, 0.9);
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.services-showcase-content {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.services-showcase-content h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.65rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+}
+
+.services-showcase-content p {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.services-showcase-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.services-perk-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.services-perk-item svg {
+  color: var(--color-accent-terracotta);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Why Choose Us Section & Image 3: Gardener Tools & Work Equipment
+   -------------------------------------------------------------------------- */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.why-us-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.why-us-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all var(--transition-smooth);
+}
+
+.why-us-card:hover {
+  border-color: var(--color-accent-terracotta);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(3px);
+}
+
+.why-us-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-sand);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+}
+
+.why-us-card:hover .why-us-icon {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-terracotta);
+}
+
+.why-us-info h3 {
+  font-size: 1.025rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+}
+
+.why-us-info p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.why-us-visual-side {
+  position: relative;
+}
+
+.why-us-image-container {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.why-us-image-container img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.why-us-image-container:hover img {
+  transform: scale(1.02);
+}
+
+.guarantee-banner-overlay {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  background: rgba(20, 36, 25, 0.94);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 1.25rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.guarantee-banner-overlay h4 {
+  color: #ffffff;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.guarantee-banner-overlay h4 svg {
+  color: var(--color-accent-terracotta);
+}
+
+.guarantee-banner-overlay p {
+  color: #d1ded7;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   9. Service Standards Section
+   -------------------------------------------------------------------------- */
+.standards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.standard-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1.85rem;
+  text-align: center;
+  transition: all var(--transition-smooth);
+}
+
+.standard-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent-terracotta);
+  box-shadow: var(--shadow-md);
+}
+
+.standard-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-sand);
+  color: var(--color-accent-terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.15rem auto;
+  border: 1px solid var(--color-border);
+}
+
+.standard-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.standard-card p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   10. Service Area Section
+   -------------------------------------------------------------------------- */
+.area-box {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.area-header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.area-search-input-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+}
+
+.area-search-input-wrap input {
+  width: 100%;
+  padding: 0.7rem 1rem 0.7rem 2.6rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-sand);
+  font-size: 0.875rem;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.area-search-input-wrap input:focus {
+  border-color: var(--color-accent-terracotta);
+  background-color: #ffffff;
+}
+
+.area-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.85rem;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.postcode-chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 2rem;
+}
+
+.area-chip {
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-sand);
+  border: 1px solid var(--color-border);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.area-chip:hover,
+.area-chip.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.area-chip.active svg {
+  color: #ffffff;
+}
+
+.area-chip svg {
+  color: var(--color-accent-terracotta);
+  transition: color var(--transition-fast);
+}
+
+.area-notice-banner {
+  background-color: var(--color-sand);
+  border: 1px dashed rgba(27, 48, 34, 0.2);
+  border-radius: var(--radius-xs);
+  padding: 1.15rem 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.area-notice-text {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.area-notice-text svg {
+  color: var(--color-accent-terracotta);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. Closing / CTA Section (Image 4: Beautiful Finished Garden / Patio)
+   -------------------------------------------------------------------------- */
+.cta-showcase-section {
+  padding: 5.5rem 0;
+  background-color: var(--color-bg-body);
+}
+
+.cta-showcase-card {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-primary-dark);
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: stretch;
+}
+
+.cta-showcase-content {
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta-showcase-content h2 {
+  color: #ffffff;
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.18;
+  margin-bottom: 1rem;
+}
+
+.cta-showcase-content h2 span {
+  color: var(--color-accent-terracotta);
+  font-style: italic;
+}
+
+.cta-showcase-content p {
+  color: #d1ded7;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.cta-highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-bottom: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cta-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cta-highlight-item svg {
+  color: var(--color-accent-terracotta);
+  flex-shrink: 0;
+}
+
+.cta-showcase-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cta-showcase-img-wrap {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.cta-showcase-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.cta-showcase-card:hover .cta-showcase-img-wrap img {
+  transform: scale(1.02);
+}
+
+.cta-img-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: rgba(20, 36, 25, 0.88);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.775rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-img-badge svg {
+  color: var(--color-accent-terracotta);
+}
+
+/* --------------------------------------------------------------------------
+   12. Contact & Quote Section
+   -------------------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3.5rem;
+}
+
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.contact-highlight-card {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-primary-dark);
+}
+
+.contact-highlight-card h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 0.65rem;
+}
+
+.contact-highlight-card p {
+  color: #c9d8ce;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.phone-feature-box {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xs);
+  margin-bottom: 1.25rem;
+}
+
+.phone-feature-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-accent-terracotta);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phone-feature-text span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #c4d4c8;
+}
+
+.phone-feature-text a {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-text-main);
+}
+
+.contact-detail-item svg {
+  color: var(--color-accent-terracotta);
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.quote-form-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.quote-form-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.quote-form-card p {
+  margin-bottom: 1.75rem;
+  font-size: 0.9rem;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  letter-spacing: 0.02em;
+}
+
+.form-group label span {
+  color: var(--color-accent-terracotta);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-main);
+  font-size: 0.875rem;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--color-accent-terracotta);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(217, 122, 91, 0.15);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 105px;
+}
+
+.form-privacy-note {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.form-success-banner {
+  display: none;
+  background-color: var(--color-sand);
+  border: 1px solid var(--color-accent-terracotta);
+  border-radius: var(--radius-xs);
+  padding: 1.5rem;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.form-success-banner.show {
+  display: block;
+}
+
+.form-success-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-accent-terracotta);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem auto;
+}
+
+.form-success-banner h4 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.form-success-banner p {
+  color: var(--color-text-main);
+  font-size: 0.875rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. Footer Section
+   -------------------------------------------------------------------------- */
+.main-footer {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 4.5rem 0 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 1.25fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand p {
+  color: #c4d4c8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  max-width: 300px;
+}
+
+.footer-title {
+  color: var(--color-accent-terracotta);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  color: #d1ded7;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  color: #d1ded7;
+  font-size: 0.875rem;
+}
+
+.footer-contact-item svg {
+  color: var(--color-accent-terracotta);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.footer-bottom {
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: #92a498;
+}
+
+/* --------------------------------------------------------------------------
+   14. Floating Mobile Sticky Action Bar
+   -------------------------------------------------------------------------- */
+.mobile-sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(20, 36, 25, 0.96);
+  backdrop-filter: blur(12px);
+  padding: 0.65rem 0.85rem;
+  z-index: 998;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mobile-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+/* --------------------------------------------------------------------------
+   15. Animations & Scroll Reveal
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   16. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .hero-image-card img {
+    height: 360px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-showcase-card {
+    grid-template-columns: 1fr;
+  }
+
+  .services-showcase-img-wrap {
+    min-height: 260px;
+  }
+
+  .why-us-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .why-us-image-container img {
+    height: 380px;
+  }
+
+  .cta-showcase-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-showcase-img-wrap {
+    min-height: 280px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    display: none;
+  }
+
+  .nav-desktop,
+  .header-phone-box,
+  .header-actions .btn {
+    display: none;
+  }
+
+  .mobile-toggle-btn {
+    display: flex;
+  }
+
+  .section,
+  .cta-showcase-section {
+    padding: 3.5rem 0;
+  }
+
+  .hero {
+    padding: 2rem 0 3rem 0;
+  }
+
+  .services-grid,
+  .standards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-showcase-content {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .services-showcase-perks,
+  .cta-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .cta-showcase-content {
+    padding: 2.25rem 1.5rem;
+  }
+
+  .hero-highlights {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .mobile-sticky-cta {
+    display: block;
+  }
+
+  body {
+    padding-bottom: 64px;
+  }
+
+  .area-box,
+  .quote-form-card {
+    padding: 1.5rem;
+  }
+}
