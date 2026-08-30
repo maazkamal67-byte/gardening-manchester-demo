@@ -239,6 +239,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Robust Image Fallback & Load Error Handling
+  const allImages = document.querySelectorAll('img');
+  allImages.forEach((img) => {
+    img.addEventListener('error', function () {
+      if (this.dataset.fallback && this.src !== this.dataset.fallback) {
+        console.warn('Primary image load failed, applying verified fallback for:', this.alt);
+        this.src = this.dataset.fallback;
+      }
+    });
+  });
 });
 
 function escapeHtml(str) {
