@@ -1,5 +1,5 @@
 /**
- * Gardening Services Manchester - Interactive Scripts
+ * Greenleaf Garden Care - Interactive Scripts
  * Pure vanilla JavaScript: Fast, accessible, and lightweight.
  */
 
@@ -149,10 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (areaSearchFeedback) {
         if (query.length > 0) {
           if (matchCount > 0) {
-            areaSearchFeedback.innerHTML = `✓ Yes! We cover <strong>${matchCount} matching area(s)</strong> in Manchester. Call 0161 823 0201 for immediate booking.`;
+            areaSearchFeedback.innerHTML = `✓ Yes! We cover <strong>${matchCount} matching area(s)</strong> in Your Area. Call 0000 000 0000 for immediate booking.`;
             areaSearchFeedback.style.color = 'var(--color-primary-dark)';
           } else {
-            areaSearchFeedback.innerHTML = `We cover all M-postcodes across Greater Manchester! Call <strong>0161 823 0201</strong> to confirm your specific address.`;
+            areaSearchFeedback.innerHTML = `We cover all locations across Your Area! Call <strong>0000 000 0000</strong> to confirm your specific address.`;
             areaSearchFeedback.style.color = 'var(--color-accent-terracotta)';
           }
         } else {
@@ -221,15 +221,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 </svg>
               </div>
               <h4>Thank you, ${escapeHtml(customerName)}!</h4>
-              <p style="margin-bottom: 0.75rem;">Your quote request for <strong>${escapeHtml(selectedServiceName)}</strong> has been received by our Manchester team.</p>
+              <p style="margin-bottom: 0.75rem;">Your quote request for <strong>${escapeHtml(selectedServiceName)}</strong> has been received by our team in Your Area.</p>
               <p style="font-size: 0.85rem; color: var(--color-text-muted);">One of our local gardeners will review your details and contact you at <strong>${escapeHtml(phoneInput.value.trim())}</strong> shortly.</p>
               <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
-                <p style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary-dark);">Need urgent same-day service? Call our 24/7 hotline directly:</p>
-                <a href="tel:01618230201" class="btn btn-primary btn-sm" style="margin-top: 0.5rem; display: inline-flex;">
+                <p style="font-size: 0.85rem; font-weight: 600; color: var(--color-primary-dark);">Need urgent same-day service? Call our team directly:</p>
+                <a href="tel:00000000000" class="btn btn-primary btn-sm" style="margin-top: 0.5rem; display: inline-flex;">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                   </svg>
-                  0161 823 0201
+                  0000 000 0000
                 </a>
               </div>
             `;
